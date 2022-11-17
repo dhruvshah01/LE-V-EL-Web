@@ -63,22 +63,26 @@ CSS for the table -->
 
 	.toggleDisplay {
 		display: none;
+   
 	}
 	.toggleDisplay.in {
 		display: table-cell;
+    
 	}
 
 .box-row {
-width:900px;
+
 padding:20px;
 border:1px ;
 margin-top:50px;
-margin-left: 100px;
 height:300px;
 
 }
 .select-align{
 text-align: center;
+}
+.box-border{
+  border: solid black;
 }
 	
 	</style>
@@ -91,7 +95,8 @@ text-align: center;
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-      <h1 class="logo mr-auto"><a href="index.html">LE-V-EL</a></h1>
+    
+      <img src="assets/img/level_icon.JPG" alt="Italian Trulli" class="logo-css">
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="#services">Leaderboard</a></li>
@@ -192,8 +197,8 @@ CSS for the table -->
           <h2>Compare</h2>
           <p>Graphical analysis of the model performance</p>
         </div>
-		 <div class="chart-container" style="position: relative; height:100vh; width:80vw">
-			<canvas id="popChart" width="100" height="50"></canvas>
+		 <div class="chart-container" style="position: relative;  width:80vw;">
+			<canvas  id="popChart" width="100" height="50"></canvas>
 			<select id="dataset" class="select-align" onchange="myFunctionclick();" >
 			
   <option value="angle">angle</option>
@@ -224,16 +229,16 @@ CSS for the table -->
          <div>
             <h3>About</h3>
             <p>
-			In machine graphical perception, computers decode low-level building blocks of visualizations. Recently, researchers started <br> studying 
+			In machine graphical perception, computers decode low-level building blocks of visualizations. Recently, researchers started  studying 
 			how different artificial neural networks perform the human perception experiments of Cleveland and McGill. 
-			To allow <br> consistent evaluations and meaningful comparisons, we present the LE-V-EL benchmark repository.For all benchmarks, we <br> offer training datasets, including labels and challenge datasets, without labels. Researchers can submit solutions for the<br> challenge 
-			datasets and receive a leaderboard ranking through a scalable submission mechanism that computes scores based <br> on the loss function. As the initial population of the leaderboard, we include rankings for existing neural network architectures <br> such as AlexNet, VGG-19, DenseNet, and a combined Mask-RCNN/VGG-19 instance segmentation pipeline. <br>LE-V-EL is fully open and allows fair comparisons of future machine graphical perception algorithms.
+			To allow  consistent evaluations and meaningful comparisons, we present the LE-V-EL benchmark repository.For all benchmarks, we  offer training datasets, including labels and challenge datasets, without labels. Researchers can submit solutions for the challenge 
+			datasets and receive a leaderboard ranking through a scalable submission mechanism that computes scores based  on the loss function. As the initial population of the leaderboard, we include rankings for existing neural network architectures  such as AlexNet, VGG-19, DenseNet, and a combined Mask-RCNN/VGG-19 instance segmentation pipeline. LE-V-EL is fully open and allows fair comparisons of future machine graphical perception algorithms.
             </p>
 			
           <div>
             <h3>Download Dataset</h3>
             <p>
-              The dataset contains 8 elemenatary stimuli that are inspired from the Cleeveland Mcgill experiments. Each image is 100x150 with <br>4 stimuli of different quantitative value. This repository provides standardized datasets that cover the graphical perceptions tasks <br>of Cleveland and McGill. These include decoding elementary perceptual tasks from 1984 and ratio estimations from 1985.
+              The dataset contains 8 elemenatary stimuli that are inspired from the Cleeveland Mcgill experiments. Each image is 100x150 with 4 stimuli of different quantitative value. This repository provides standardized datasets that cover the graphical perceptions tasks of Cleveland and McGill. These include decoding elementary perceptual tasks from 1984 and ratio estimations from 1985.
             </p>
             
               <button type="button" onclick="window.location.href='https://www.dropbox.com/sh/cavjnb91vbwh2n9/AABB9Ksoy-h9POak9e9nq6bua/RESULTS_FROM_SCRATCH?dl=0&subfolder_nav_tracking=1'" class="btn btn-primary btn-sm">Train</button></li>
@@ -246,7 +251,7 @@ CSS for the table -->
             <p>
               <h2>Amazon Mechanical Turk</h2>
 			  <p>
-			  We also provide the human benchmark of all the stimuli from amazon turker. The results are obtained from various user with masters <br> certification. These annotaion results can help the users
+			  We also provide the human benchmark of all the stimuli from amazon turker. The results are obtained from various user with masters  certification. These annotaion results can help the users
 			  understand the visual cortext perception. 
 			  </p>
 			 
@@ -722,15 +727,15 @@ var bubbleChart = new Chart(popCanvas, {
 	var mydata = JSON.parse(da) 
 	
 	var t = "";
-	var tr = "<thead> <tr> <th>Rank</th> <th>Model</th> <th> Team </th> <th id='click-me'>Score&rArr;</th> <th class='toggleDisplay'>angle</th> <th class='toggleDisplay'>area</th> <th class='toggleDisplay'>curvature</th> <th class='toggleDisplay'>direction</th> <th class='toggleDisplay'>length</th> <th class='toggleDisplay'>position_common</th> <th class='toggleDisplay'>position_non_aligned</th> <th class='toggleDisplay'>volume</th> </tr> </thead> <tbody>";
+	var tr = "<thead > <tr class='box-border'> <th>Rank</th> <th>Model</th> <th> Team </th> <th  id='click-me'>Score&rArr;</th> <th class='toggleDisplay'>angle</th> <th class='toggleDisplay'>area</th> <th class='toggleDisplay'>curvature</th> <th class='toggleDisplay'>direction</th> <th class='toggleDisplay'>length</th> <th class='toggleDisplay'>position_common</th> <th class='toggleDisplay'>position_non_aligned</th> <th class='toggleDisplay'>volume</th> </tr> </thead> <tbody class='box-border'>";
 
 for (var i = 0; i < mydata.length; i++){
       				
 				
-      tr += "<tr>"+"<th scope='row'>"+mydata[i].id +"</th>";
-      tr += "<td>"+mydata[i].model+"</td>"
+      tr += "<tr  >"+"<th scope='row'>"+mydata[i].id +"</th>";
+      tr += "<td >"+mydata[i].model+"</td>"
 	  tr += "<td>"+mydata[i].team+"</td>"
-	  tr += "<td>"+mydata[i].Stimuli+"</td>"
+	  tr += "<td >"+mydata[i].Stimuli+"</td>"
 	  
 	 tr += "<td class='toggleDisplay'>"+mydata[i].angle+"</th>"
      tr += "<td class='toggleDisplay'>"+mydata[i].area+"</th>"
